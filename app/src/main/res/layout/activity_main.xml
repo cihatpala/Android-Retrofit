@@ -1,18 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity"
+    android:background="@color/DarkSeaGreen">
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="140dp" />
+
+    <EditText
+        android:layout_marginTop="-110dp"
+        android:id="@+id/editTextEmail"
+        android:hint="E-mail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textColorLink="@color/DarkSeaGreen"
+        />
+    <EditText
+        android:id="@+id/editTextName"
+        android:hint="Name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        />
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:hint="Şifre"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:id="@+id/editTextRePassword"
+        android:hint="Şifre Tekrar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/editTextSchool"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="20dp"
+        android:hint="School"
+        />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/bilgilendirme"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:textColor="@color/DodgerBlue"
+        android:text="Zaten bir hesabınız var mı?" />
+    <TextView
+        android:id="@+id/textViewLogin"
+        android:layout_width="145dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="50px"
+        android:textColor="@color/MediumBlue"
+        android:text="Giriş Yapmak İçin Tıkla"/>
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:text="Kaydol"
+        android:background="@color/PaleGreen"
+        />
+
+
+
+</LinearLayout>
