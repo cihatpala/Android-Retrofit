@@ -10,7 +10,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("createuser")
-    Call<ResponseBody> createUser(
+    Call<DefaultResponse> createUser(
             @Field("email") String email,
             @Field("password") String password,
             @Field("name") String name,

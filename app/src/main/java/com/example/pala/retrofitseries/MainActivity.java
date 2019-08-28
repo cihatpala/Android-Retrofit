@@ -10,6 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.regex.Pattern;
 import okhttp3.ResponseBody;
@@ -96,27 +101,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        Call<ResponseBody> call = RetrofitClient
+        Call<DefaultResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
                 .createUser(email, password, name, school);
-
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<DefaultResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {
-                    String s = response.body().string();
-                    Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
+            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+
+                if(response.code() == 201){
+                    DefaultResponse dr = response.body();
+                    Toast.makeText(MainActivity.this, dr.getMsg(),Toast.LENGTH_SHORT).show();
+                }else if(response.code() == 422){
+                    Toast.makeText(MainActivity.this, "Kullanıcı Zaten Var / User already exist",Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+
             }
         });
+
 
     }
 
